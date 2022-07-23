@@ -1,6 +1,7 @@
 package com.spark.plans.impl;
 
 import com.spark.plans.IJob;
+import com.spark.plans.IJobPlan;
 
 public class BasicJob implements IJob {
 

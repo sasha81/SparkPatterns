@@ -13,7 +13,7 @@ public class JsonExecutor extends BasicJobExecutor implements IJobExecutor{
 
 	public JsonExecutor(SparkSession sparkSession, String path, String jobName) {
 		super(sparkSession);
-		   this.jobPlan = new BasicJobPlan();
+		//   this.jobPlan = new BasicJobPlan();
 	        this.jobPlan.setLoader(new JsonLoader(sparkSession,path));
 	        this.jobPlan.setSaver(new JsonSaver(sparkSession));
 	        this.jobPlan.setTransformer(new BasicTransformer(sparkSession));

@@ -1,7 +1,7 @@
 package com.spark.plans;
 
 public interface IJobPlan {
-	  void setLoader(ILoader loader);
+	    void setLoader(ILoader loader);
 	    void setTransformer(ITransformer transformer);
 	    void setSaver(ISaver saver);
 	    ILoader getLoader();
@@ -9,4 +9,7 @@ public interface IJobPlan {
 	    ITransformer getTransformer();
 
 	    ISaver getSaver();
+	    
+	    void run();
+	    String getJobName();
 }
