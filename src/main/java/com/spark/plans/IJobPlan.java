@@ -12,4 +12,5 @@ public interface IJobPlan {
 	    
 	    void run();
 	    String getJobName();
+		void setJobName(String jobName);
 }
