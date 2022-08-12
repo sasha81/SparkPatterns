@@ -1,4 +1,4 @@
-package com.spark.utils;
+package com.spark.custompatterns.utils;
 
 import org.apache.spark.sql.SparkSession;
 

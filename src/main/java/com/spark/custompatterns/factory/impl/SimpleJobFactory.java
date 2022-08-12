@@ -1,29 +1,31 @@
-package com.spark.factory;
+package com.spark.custompatterns.factory.impl;
 
 import java.util.Map;
 
 import org.apache.spark.sql.SparkSession;
 
-import com.spark.plans.IJobPlan;
-import com.spark.plans.impl.BasicJobPlan;
-import com.spark.plans.impl.BasicTransformer;
-import com.spark.plans.impl.JsonLoader;
-import com.spark.plans.impl.JsonSaver;
-import com.spark.utils.SparkSessionContainer;
+import com.spark.custompatterns.factory.IFactory;
+import com.spark.custompatterns.plans.IJobPlan;
+import com.spark.custompatterns.plans.impl.BasicJobPlan;
+import com.spark.custompatterns.plans.impl.BasicTransformer;
+import com.spark.custompatterns.plans.impl.JsonLoader;
+import com.spark.custompatterns.plans.impl.JsonSaver;
+import com.spark.custompatterns.plans.impl.ShowSaver;
+import com.spark.custompatterns.utils.SparkSessionContainer;
 
-public class SimpleJobFactory extends SparkSessionContainer implements IFactory{
+public class SimpleJobFactory<I extends IJobPlan> extends SparkSessionContainer implements IFactory{
 	
 	String jobName;
 	Map<String, String> options;
-	IJobPlan plan;
+	I plan;
 	
 	public SimpleJobFactory(SparkSession sparkSession, Map<String, String> options) {
 		super(sparkSession);
-		plan = new BasicJobPlan(sparkSession);
+		plan = (I) new BasicJobPlan(sparkSession);
 		this.options = options;
 	}
 
-	public SimpleJobFactory(SparkSession sparkSession, IJobPlan plan, Map<String, String> options) {
+	public SimpleJobFactory(SparkSession sparkSession, I plan, Map<String, String> options) {
 		this(sparkSession,options);
 		this.plan = plan;
 	}
@@ -36,10 +38,10 @@ public class SimpleJobFactory extends SparkSessionContainer implements IFactory{
 		this.options = options;
 	}
 	
-	public void setJobPlan(IJobPlan plan) {
+	public void setJobPlan(I plan) {
 		this.plan = plan;
 	}
-	public IJobPlan getJob() {
+	public I getJob() {
 		return this.plan;
 	}
 	
@@ -48,7 +50,7 @@ public class SimpleJobFactory extends SparkSessionContainer implements IFactory{
 	
 		plan.setJobName(this.jobName);
 		plan.setLoader(new JsonLoader(sparkSession,options.get("path")));
-	    plan.setSaver(new JsonSaver(sparkSession));
+	    plan.setSaver(new ShowSaver(sparkSession));
 	    plan.setTransformer(new BasicTransformer(sparkSession));
 	    
 	}

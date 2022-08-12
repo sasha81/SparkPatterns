@@ -1,10 +1,10 @@
-package com.spark.plans.impl;
+package com.spark.custompatterns.plans.impl;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SaveMode;
 
-import com.spark.plans.ISaver;
+import com.spark.custompatterns.plans.ISaver;
 
 import java.io.Serializable;
 

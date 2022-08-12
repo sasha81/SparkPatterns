@@ -1,4 +1,4 @@
-package com.spark.plans;
+package com.spark.custompatterns.plans;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;

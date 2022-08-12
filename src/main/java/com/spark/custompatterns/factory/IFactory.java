@@ -1,8 +1,8 @@
-package com.spark.factory;
+package com.spark.custompatterns.factory;
 
 import java.util.Map;
 
-import com.spark.plans.IJobPlan;
+import com.spark.custompatterns.plans.IJobPlan;
 
 public interface IFactory {
 	void make();

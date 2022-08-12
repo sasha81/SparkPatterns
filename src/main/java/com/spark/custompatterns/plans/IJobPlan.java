@@ -1,4 +1,4 @@
-package com.spark.plans;
+package com.spark.custompatterns.plans;
 
 public interface IJobPlan {
 	    void setLoader(ILoader loader);

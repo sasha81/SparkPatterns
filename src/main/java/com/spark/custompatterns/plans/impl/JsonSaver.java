@@ -1,4 +1,4 @@
-package com.spark.plans.impl;
+package com.spark.custompatterns.plans.impl;
 
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.sql.Dataset;
@@ -6,8 +6,8 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SaveMode;
 import org.apache.spark.sql.SparkSession;
 
-import com.spark.plans.ISaver;
-import com.spark.utils.SparkSessionContainer;
+import com.spark.custompatterns.plans.ISaver;
+import com.spark.custompatterns.utils.SparkSessionContainer;
 
 import java.io.Serializable;
 

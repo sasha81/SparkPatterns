@@ -1,11 +1,11 @@
-package com.spark.plans.impl;
+package com.spark.custompatterns.plans.impl;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
-import com.spark.plans.ILoader;
-import com.spark.utils.SparkSessionContainer;
+import com.spark.custompatterns.plans.ILoader;
+import com.spark.custompatterns.utils.SparkSessionContainer;
 
 import java.io.Serializable;
 

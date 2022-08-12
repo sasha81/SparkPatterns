@@ -1,17 +1,19 @@
-package com.spark.plans.impl;
+package com.spark.custompatterns.plans.impl;
 
 import org.apache.spark.SparkContext;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
-import com.spark.plans.IJobPlan;
-import com.spark.plans.ILoader;
-import com.spark.plans.ISaver;
-import com.spark.plans.ITransformer;
-import com.spark.utils.SparkSessionContainer;
+import com.spark.custompatterns.plans.IJobPlan;
+import com.spark.custompatterns.plans.ILoader;
+import com.spark.custompatterns.plans.ISaver;
+import com.spark.custompatterns.plans.ITransformer;
+import com.spark.custompatterns.utils.SparkSessionContainer;
 
 public class BasicJobPlan extends SparkSessionContainer implements IJobPlan{
+	
+	protected Dataset<Row> ds;
 	
 	public BasicJobPlan(SparkSession sparkSession, String jobName) {
 		this(sparkSession);
@@ -63,9 +65,9 @@ public class BasicJobPlan extends SparkSessionContainer implements IJobPlan{
 		public void run() {
 			SparkContext sparkContext = this.sparkSession.sparkContext();
 	        sparkContext.setJobDescription(jobName);
-	        Dataset<Row> ds = loader.load();
-	        ds = transformer.transform(ds);
-	        saver.save(ds);
+	        this.ds = loader.load();
+	        this.ds = transformer.transform(this.ds);
+	        saver.save(this.ds);
 			
 		}
 
