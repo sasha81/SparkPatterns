@@ -1,0 +1,12 @@
+---
+jobName: JOB_1
+hiveTable: hiveTable_1
+select: rdbTable_1
+repartition: 10
+fetchSize: 10000
+---
+jobName: JOB_2
+hiveTable: hiveTable_2
+select: rdbTable_2
+repartition: 10
+fetchSize: 10000

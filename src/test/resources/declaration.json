@@ -1,0 +1,13 @@
+{
+  "declaration_id": "ABCDE12345",
+  "declaration_version": 2, 
+  "declaration_type": 2,
+  "declaration_date": "2023-03-14", 
+  "declaration_details": [
+    {
+      "detail_1": 10,
+      "detail_2": 11250
+   
+    }
+  ] 
+}
