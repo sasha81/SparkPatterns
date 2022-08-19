@@ -14,10 +14,10 @@ public class JobConfig {
 		this.hiveTable = hiveTable;
 	}
 	public String getSelect() {
-		return select;
+		return rdbTable;
 	}
 	public void setSelect(String select) {
-		this.select = select;
+		this.rdbTable = select;
 	}
 	public int getRepartition() {
 		return repartition;
@@ -33,7 +33,7 @@ public class JobConfig {
 	}
 	private String jobName;
 	    private String hiveTable;	  
-	    private String select;
+	    private String rdbTable;
 	    private int repartition;
 	    private int fetchSize;
 }
