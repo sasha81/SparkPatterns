@@ -18,7 +18,7 @@ import com.spark.custompatterns.model.Declaration;
 import com.spark.custompatterns.model.JobConfig;
 
 public class ParserService  {
-public static  <T extends DataInputStream, B extends Declaration> B parseSingleDeclarationStream(T inputStream,
+public static  <T extends DataInputStream, B> B parseSingleDeclarationStream(T inputStream,
 		Class<B> className) throws IOException {
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
     JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));

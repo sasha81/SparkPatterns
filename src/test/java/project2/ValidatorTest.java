@@ -9,9 +9,12 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.junit.jupiter.api.Test;
+
+import com.spark.custompatterns.utils.AChainDT;
 import com.spark.custompatterns.utils.IChain;
 import com.spark.custompatterns.utils.IChainDT;
 import com.spark.custompatterns.utils.SimpleDateTimeParser;
+import com.spark.custompatterns.utils.SimpleDateTimeParserA;
 import com.spark.custompatterns.utils.SimpleDateValidator;
 
 public class ValidatorTest {
@@ -55,5 +58,29 @@ public class ValidatorTest {
 //      testString = "2020/10/19";
 //      assertFalse(validator2.validate(testString));
   }
+  @Test
+  public void parserATest(){
+      String pattern1 = "yyyy-MM-dd";
+      String pattern2 = "yyyy.MM.dd";
 
+      AChainDT validator1 = new SimpleDateTimeParserA(pattern1);
+    //  IChainDT validator2 = new SimpleDateTimeParser(pattern2,validator1);
+      AChainDT validator2 = new SimpleDateTimeParserA(pattern2);
+      validator1.setNext(validator2);
+
+      String testString = "2020-10-19";
+      LocalDate result = validator1.getDateTime(testString);     
+      assertEquals(result.getYear(),2020);
+      
+      testString = "2020.10.19";
+      result = validator1.getDateTime(testString);
+      assertEquals(result.getYear(),2020);
+      
+      testString="10/19/2020";
+      result = validator1.getDateTime(testString);
+      assertEquals(result.getYear(),1969);
+//      assertTrue(validator2.validate(testString));
+//      testString = "2020/10/19";
+//      assertFalse(validator2.validate(testString));
+  }
 }
